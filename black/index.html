@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <title>简约</title>
+</head>
+
+<body style="background-color: #eeeeee;">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div style="background-color: #000000">
+                    <div class="container">
+                        <div style="color: #ffffff; padding: 3em;">
+                            <div class="col-md-12 col-xs-12" style="text-align: center; ">
+                                <div class="card border-light text-white bg-dark" style="padding: 3em;">
+                                    <h1>{{.Conf.Title}}</h1>
+                                </div>
+                                <div style="margin-top: 0.5em;">
+                                    <h4>{{.Conf.Summary1}}</h4>
+                                    <p>{{.Conf.Summary2}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 2em;">
+            <div class="card-deck">
+                {{if .Md.Title}}
+                <div class="card">
+                    <img src="{{index .Md.Thumbnail 0}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{.Md.Title}}</h5>
+                        <p class="card-text">{{.Md.Summary}}</p>
+                        <a href="{{.Md.Href}}" class="btn btn-primary">查看</a>
+                        <p class="card-text" style="margin-top: 0.1em;"><small class="text-muted">{{.Md.Date}}</small>
+                        </p>
+                    </div>
+                </div>
+                {{end}}
+                {{ range .History}}
+                <div class="card">
+                    <img src="{{index .Thumbnail 0}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{.Title}}</h5>
+                        <p class="card-text">{{.Summary}}</p>
+                        <a href="{{.Href}}" class="btn btn-primary">查看</a>
+                        <p class="card-text" style="margin-top: 0.1em;"><small class="text-muted">{{.Date}}</small>
+                        </p>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
